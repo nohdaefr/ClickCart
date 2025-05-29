@@ -1,44 +1,41 @@
-import React, { useState } from 'react';
-import './index.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useState, useCallback } from 'react';
+import { loadFull } from 'tsparticles';
 
-import UserInput from './assets/UserInput/userInput';
-import Header from './assets/Header/header';
-import ResultsTable from './assets/resultsTable/resultsTable';
+import Auth from './pages/Auth';
+import ProductPage from './pages/ProductPage';
+import ProductDetails from './pages/ProductDetails';
+import Cart from './pages/Cart';
+import Checkout from './pages/Checkout';
+
+import { CartProvider } from './pages/CartContext';
+import PaymentPopupWithEffects from './API/PaymentPopupWithEffects';
+
+import './styles.css';
 
 function App() {
-  const [userInput, setUserInput] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
 
-  const calculateHandler = (input) => {
-    setUserInput(input);
-  };
+  // Optional: If you plan to use tsparticles somewhere, you can init it like this:
+  const particlesInit = useCallback(async (engine) => {
+    await loadFull(engine);
+  }, []);
 
-  const yearlyData = [];
-  if (userInput) {
-    let currentSavings = +userInput['current-savings'];
-    const yearlyContribution = +userInput['yearly-contribution'];
-    const expectedReturn = +userInput['expected-return'] / 100;
-    const duration = +userInput['duration'];
-
-    for (let i = 0; i < duration; i++) {
-      const yearlyInterest = currentSavings * expectedReturn;
-      currentSavings += yearlyInterest + yearlyContribution;
-      yearlyData.push({
-        year: i + 1,
-        yearlyInterest: yearlyInterest,
-        savingsEndOfYear: currentSavings,
-        yearlyContribution: yearlyContribution,
-      });
-    }
-  }
-
- 
   return (
-    <div className="App">
-      <Header />
-      <UserInput onCalculate={calculateHandler} />
-      {!userInput && <p style={{ textAlign: 'center' }}>No investment calculated yet.</p>}
-      {userInput && <ResultsTable data={yearlyData} initialInvestment={userInput['current-savings']} />}
-    </div>
+    <CartProvider>
+      <Router basename="/clickcart">
+        <Routes>
+          <Route path="/" element={<Auth />} />
+          <Route path="/products" element={<ProductPage />} />
+          <Route path="/products/:id" element={<ProductDetails />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout setShowPopup={setShowPopup} />} />
+        </Routes>
+      </Router>
+
+      {/* Conditionally render the payment popup */}
+      {showPopup && <PaymentPopupWithEffects setShowPopup={setShowPopup} />}
+    </CartProvider>
   );
 }
 

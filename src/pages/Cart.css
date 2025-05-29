@@ -1,0 +1,326 @@
+/* General cart container styling */
+.cart-container {
+  max-width: 700px; /* Reduce width for a better centered look */
+  margin: 50px auto; /* Center horizontally with some spacing */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content */
+  text-align: center;
+}
+
+/* Heading style */
+.cart-heading {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Individual cart item container */
+.cart-items {
+  width: 100%;
+}
+
+.cart-item {
+  display: flex;
+  flex-direction: column; /* Stack items */
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.cart-item:hover {
+  background-color: #f4f4f4;
+}
+
+/* Product image styling */
+.cart-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+/* Product details */
+.cart-item-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.cart-item-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.cart-item-price,
+.cart-item-quantity,
+.cart-item-total {
+  font-size: 16px;
+  color: #666;
+  margin: 5px 0;
+}
+
+/* Quantity Button Styles */
+.quantity-container {
+  display: flex;
+  gap: 10px;
+}
+
+.quantity-button {
+  background-color: #ddd;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.quantity-button:hover {
+  background-color: #ccc;
+}
+
+/* Remove button styling */
+.remove-button {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+}
+
+.remove-button:hover {
+  background-color: #e60000;
+  transform: scale(1.05);
+}
+
+/* Total price section */
+.cart-total {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 30px 0;
+  color: #333;
+  text-align: center;
+}
+
+/* Checkout button */
+.checkout-button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  color: white;
+  background-color: #007bff;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.checkout-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Back button */
+.back-button {
+  margin-top: 20px;
+  background-color: #6c757d;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.back-button:hover {
+  background-color: #545b62;
+}
+
+/* Payment Popup */
+.payment-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.payment-popup input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Success popup */
+.success-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #ff6f61, #de3c4b);
+  color: white;
+  padding: 40px 60px;
+  border-radius: 20px;
+  font-size: 24px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: popupAnimation 3s ease forwards;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+/* Popup scaling and fading animation */
+@keyframes popupAnimation {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  40% {
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  60% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+
+/* Confetti pieces for a celebratory effect */
+.balloon {
+  position: absolute;
+  bottom: -100px;
+  width: 40px;
+  height: 60px;
+  border-radius: 20px 20px 0 0;
+  opacity: 0;
+  animation: floatUp 6s ease-in-out infinite;
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 20px;
+  background: #fff;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-400px) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Positioning and Colors for Balloons */
+.balloon.balloon-1 { left: 5%; animation-delay: 0s; background: #ff4d4d; }
+.balloon.balloon-2 { left: 20%; animation-delay: 1s; background: #ffa500; }
+.balloon.balloon-3 { left: 35%; animation-delay: 0.5s; background: #ffd700; }
+.balloon.balloon-4 { left: 50%; animation-delay: 1.5s; background: #adff2f; }
+.balloon.balloon-5 { left: 65%; animation-delay: 0.8s; background: #87cefa; }
+.balloon.balloon-6 { left: 80%; animation-delay: 1.2s; background: #ba55d3; }
+.balloon.balloon-7 { left: 90%; animation-delay: 0.6s; background: #ff69b4; }
+
+/* Firework Styles and Animation */
+.firework {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, #ffdd00, #ff8800);
+  border-radius: 50%;
+  opacity: 0;
+  animation: burst 1.5s ease-out infinite;
+}
+
+@keyframes burst {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+/* Positioning for Fireworks */
+.firework.firework-1 { top: 10%; left: 10%; animation-delay: 0.3s; }
+.firework.firework-2 { top: 15%; left: 30%; animation-delay: 0.6s; }
+.firework.firework-3 { top: 8%; left: 50%; animation-delay: 0.9s; }
+.firework.firework-4 { top: 12%; left: 70%; animation-delay: 1.2s; }
+.firework.firework-5 { top: 5%; left: 85%; animation-delay: 1.5s; }
+
+/* Smiley Faces */
+.smiley {
+  position: absolute;
+  font-size: 40px;
+  animation: floatUp 5s ease-in-out infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-100px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-200px) scale(1.5);
+  }
+}
+
+/* Random Positioning for Smileys */
+.smiley.smiley-1 { top: 5%; left: 25%; animation-delay: 0s; }
+.smiley.smiley-2 { top: 10%; left: 50%; animation-delay: 1s; }
+.smiley.smiley-3 { top: 20%; left: 75%; animation-delay: 2s; }
+.smiley.smiley-4 { top: 30%; left: 10%; animation-delay: 3s; }
+.smiley.smiley-5 { top: 40%; left: 60%; animation-delay: 4s; }

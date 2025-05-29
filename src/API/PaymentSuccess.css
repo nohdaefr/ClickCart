@@ -1,0 +1,69 @@
+.success-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #121212;
+  }
+  
+  .success-card {
+    background: #1c1c1c;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+    max-width: 400px;
+    width: 90%;
+  }
+  
+  .checkmark-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background: #4caf50;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    animation: pop 0.5s ease-in-out;
+  }
+  
+  .checkmark {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  @keyframes pop {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  .username {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .continue-btn {
+    background: #007bff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background 0.3s;
+  }
+  
+  .continue-btn:hover {
+    background: #0056b3;
+  }
+  

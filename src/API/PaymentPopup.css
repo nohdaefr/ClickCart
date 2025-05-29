@@ -1,0 +1,129 @@
+/* PaymentPopup.css */
+
+.payment-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #1e1e1e;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  max-width: 90%;
+  text-align: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.payment-popup .popup-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.payment-popup h2 {
+  margin-bottom: 15px;
+  color: #ffcc00;
+  text-align: center;
+}
+
+.payment-popup label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.payment-popup input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #555;
+  background: #2c2c2c;
+  color: white;
+  text-align: center;
+}
+
+.payment-popup input:focus {
+  border-color: #ffcc00;
+  outline: none;
+}
+
+.payment-popup button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.payment-popup button[type="submit"] {
+  background: #ffcc00;
+  color: #1e1e1e;
+  font-weight: bold;
+}
+
+.payment-popup button[type="submit"]:hover {
+  background: #ffdd44;
+}
+
+.payment-popup button[type="button"] {
+  background: #ff4242;
+  color: white;
+}
+
+.payment-popup button[type="button"]:hover {
+  background: #ff6666;
+}
+
+.payment-popup .success-message {
+  font-size: 18px;
+  color: #00ff88;
+  font-weight: bold;
+  animation: bounceIn 0.5s ease-in-out;
+  text-align: center;
+}
+
+.payment-popup .error-message {
+  color: #ff4242;
+  background: rgba(255, 66, 66, 0.2);
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 100%;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -55%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

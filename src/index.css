@@ -111,6 +111,28 @@ body {
   height: 100vh; /* Ensures the container takes up the full height of the viewport */
   margin: 20px; /* Adds a margin of 20px around the container */
 }
+/* styles.css */
+.product-card {
+  width: 200px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cart {
+  padding: 20px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
 
 
 .App img {
